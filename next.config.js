@@ -11,7 +11,7 @@ module.exports = withPWA({
       // delete two lines above to enable PWA in production deployment
       // add your own icons to public/manifest.json 
       // to re-generate manifest.json, you can visit https://tomitm.github.io/appmanifest/
-    dest: "public",
+    dest: "public/favicon",
     register: true,
   },
   reactStrictMode: true,
