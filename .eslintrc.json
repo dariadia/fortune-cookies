@@ -5,6 +5,14 @@
     "es6": true,
     "commonjs": true
   },
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "prettier",
+    "import",
+    "jest",
+    "react-hooks"
+  ],
   "extends": [
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
@@ -17,9 +25,8 @@
     "./eslint-rules/variables.yaml",
     "./eslint-rules/react.yaml",
     "./eslint-rules/typescript.yaml",
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended",
-    "prettier/react"
+    "prettier",
+    "plugin:prettier/recommended"
   ],
   "rules": {
     "prettier/prettier": [
@@ -34,16 +41,16 @@
         "jsxBracketSameLine": false,
         "arrowParens": "avoid",
         "proseWrap": "never",
-        "endOfLine": "auto",
-      },
-    ],
+        "endOfLine": "auto"
+      }
+    ]
   },
   "parserOptions": {
     "ecmaFeatures": {
-      "legacyDecorators": true,
-    },
+      "legacyDecorators": true
+    }
   },
   "globals": {
-    "JSX": true,
-  },
+    "JSX": true
+  }
 }
