@@ -33,7 +33,7 @@ export const CookieImage: React.FC = () => {
         mx="auto"
       >
         <Image
-          src="/Launching-amico.svg"
+          src="/assets/fortune-cookie.svg"
           width={400}
           height={400}
           alt="Launching Illustration"
