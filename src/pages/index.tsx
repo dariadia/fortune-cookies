@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box } from '@chakra-ui/react'
 
-import { Stats } from '@/components'
+import { Stats, CookieImage } from '@/components'
 
 const Home: React.FC = () => {
   return (
@@ -14,6 +14,7 @@ const Home: React.FC = () => {
       w="full"
     >
       <Box>
+        <CookieImage />
         <Stats />
       </Box>
     </Box>
