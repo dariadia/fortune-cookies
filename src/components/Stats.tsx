@@ -3,7 +3,7 @@ import { Box, Button, Flex, Image, Link } from '@chakra-ui/react'
 import { AiFillGithub } from 'react-icons/ai'
 import { PROJECT_REPOSITORY } from 'constants/locations'
 
-export const Greeting: React.FC = () => {
+export const Stats: React.FC = () => {
   return (
     <Box textAlign={{ base: 'center', md: 'left' }} marginTop={8}>
       <Flex
