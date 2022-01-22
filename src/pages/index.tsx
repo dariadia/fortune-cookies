@@ -8,15 +8,14 @@ const Home: React.FC = () => {
     <Box
       display={{ md: 'flex' }}
       alignItems="center"
+      justifyContent="space-around"
       minHeight="70vh"
       gap={8}
       mb={8}
       w="full"
     >
-      <Box>
-        <CookieImage />
-        <Stats />
-      </Box>
+      <CookieImage />
+      <Stats />
     </Box>
   )
 }
