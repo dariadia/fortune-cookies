@@ -1,8 +1,9 @@
+import React from 'react'
 import { ChakraProvider } from '@chakra-ui/react'
 import { EmotionCache } from '@emotion/cache'
 import { CacheProvider } from '@emotion/react'
 import { DefaultSeo } from 'next-seo'
-import { AppProps } from 'next/app'
+import { AppProps as NextAppProps } from 'next/app'
 import '@fontsource/lexend/latin.css'
 
 import defaultSEOConfig from '../../next-seo.config'
@@ -13,15 +14,15 @@ import '@/styles/globals.css'
 
 const clientSideEmotionCache = createEmotionCache()
 
-interface MyAppProps extends AppProps {
+interface AppProps extends NextAppProps {
   emotionCache?: EmotionCache
 }
 
-const MyApp = ({
+const App: React.FC<AppProps> = ({
   Component,
   pageProps,
   emotionCache = clientSideEmotionCache,
-}: MyAppProps) => {
+}) => {
   return (
     <CacheProvider value={emotionCache}>
       <ChakraProvider theme={customTheme}>
@@ -34,8 +35,8 @@ const MyApp = ({
   )
 }
 
-MyApp.defaultProps = {
+App.defaultProps = {
   emotionCache: clientSideEmotionCache,
 }
 
-export default MyApp
+export default App
