@@ -1,17 +1,19 @@
 import React from 'react'
 import { Flex, Link, Text } from '@chakra-ui/react'
+import { DANNI_GITHUB, DANNI_PORTFOLIO } from 'constants/locations'
 
-const Footer: React.FC = () => {
+export const Footer: React.FC = () => {
   return (
     <Flex as="footer" width="full" align="center">
       <Text>
-        {new Date().getFullYear()} -
-        <Link href="TODO" isExternal rel="noopener noreferrer">
-          TODO
+        {new Date().getFullYear()}.
+        <Link href={DANNI_GITHUB} isExternal rel="noopener noreferrer" mx={4}>
+          github
+        </Link>
+        <Link href={DANNI_PORTFOLIO} isExternal rel="noopener noreferrer">
+          portfolio
         </Link>
       </Text>
     </Flex>
   )
 }
-
-export default Footer
