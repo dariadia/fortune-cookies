@@ -4,9 +4,7 @@ import { FortuneCookie } from 'types'
 export default function fortuneCookieWishesHandler(
   req: { query: { id: any }; method: any },
   res: {
-    status: (
-      arg0: number,
-    ) => {
+    status: (arg0: number) => {
       (): any
       new (): any
       json: {
