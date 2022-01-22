@@ -1,20 +1,20 @@
-import { Box, Flex, Heading } from "@chakra-ui/react";
-import Link from "next/link";
+import React from 'react'
+import { Box, Flex, Heading, Link } from '@chakra-ui/react'
 
-import ThemeToggle from "./ThemeToggle";
+import { ThemeToggle } from './ThemeToggle'
+import { DANNI_PORTFOLIO } from 'constants/locations'
 
-const Header = () => {
+export const Header: React.FC = () => {
   return (
     <Flex as="header" width="full" align="center">
       <Heading as="h1" size="md">
-        <Link href="/">nextarter-chakra</Link>
+        <Link href={DANNI_PORTFOLIO} isExternal rel="noopener noreferrer">
+          Danni&apos;s portfolio
+        </Link>
       </Heading>
-
-      <Box marginLeft="auto">
+      <Box ml="auto">
         <ThemeToggle />
       </Box>
     </Flex>
-  );
-};
-
-export default Header;
+  )
+}

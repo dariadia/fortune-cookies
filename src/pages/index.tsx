@@ -1,27 +1,23 @@
-import { Box } from "@chakra-ui/react";
+import React from 'react'
+import { Box } from '@chakra-ui/react'
 
-import CTASection from "@/components/samples/CTASection";
-import SomeImage from "@/components/samples/SomeImage";
-import SomeText from "@/components/samples/SomeText";
+import { Stats, CookieImage } from '@/components'
 
-const Home = () => {
+const Home: React.FC = () => {
   return (
     <Box
-      display={{ md: "flex" }}
+      display={{ md: 'flex' }}
       alignItems="center"
+      justifyContent="space-around"
       minHeight="70vh"
       gap={8}
       mb={8}
       w="full"
     >
-      <SomeImage />
-
-      <Box>
-        <SomeText />
-        <CTASection />
-      </Box>
+      <CookieImage />
+      <Stats />
     </Box>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

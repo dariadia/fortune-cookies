@@ -1,16 +1,16 @@
 import createEmotionServer from '@emotion/server/create-instance'
 import Document, {
   Html,
-  Head,
   Main,
   NextScript,
   DocumentContext,
+  Head,
 } from 'next/document'
 import * as React from 'react'
 
 import createEmotionCache from '@/styles/createEmotionCache'
-
-const APP_NAME = 'nextarter-chakra'
+import { APP_PRODUCTION } from 'constants/locations'
+import { TEXTS } from 'constants/texts'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -47,29 +47,43 @@ class MyDocument extends Document {
     }
   }
 
-  render() {
+  render(): JSX.Element {
     return (
       <Html lang="en">
         <Head>
-          <meta name="application-name" content={APP_NAME} />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Caveat"
+            rel="stylesheet"
+          />
+          <meta name="application-name" content={TEXTS.app_title} />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta
             name="apple-mobile-web-app-status-bar-style"
             content="default"
           />
-          <meta name="apple-mobile-web-app-title" content={APP_NAME} />
+          <meta name="apple-mobile-web-app-title" content={TEXTS.app_title} />
           <meta name="format-detection" content="telephone=no" />
           <meta name="mobile-web-app-capable" content="yes" />
-          <meta name="theme-color" content="#FFFFFF" />
-
-          {/* add your own app-icon */}
-          {/* <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/icons/apple-touch-icon.png"
+          <meta name="theme-color" content="#030623" />
+          <meta
+            name="viewport"
+            content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
           />
-          <link rel="shortcut icon" href="/app-icon.png" /> */}
-          <link rel="manifest" href="/manifest.json" />
+          <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+          <title>{TEXTS.app_title}</title>
+          <meta name="description" content={TEXTS.app_description} />
+          <meta
+            name="og:image"
+            property="og:image"
+            content={`${APP_PRODUCTION}/assets/og-image.png`}
+          />
+          <meta
+            name="twitter:image"
+            content={`${APP_PRODUCTION}/assets/og-image.png`}
+          />
+          <link rel="manifest" href="/favicon/webmanifest.json" />
+          <link rel="icon" href="/favicon/favicon.ico" />
+          <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
         </Head>
         <body>
           <Main />
