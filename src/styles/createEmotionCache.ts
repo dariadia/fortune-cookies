@@ -1,5 +1,5 @@
-import createCache from "@emotion/cache";
+import createCache, { EmotionCache } from '@emotion/cache'
 
-export default function createEmotionCache() {
-  return createCache({ key: "chakra-emotion-css" });
+export default function createEmotionCache(): EmotionCache {
+  return createCache({ key: 'chakra-emotion-css' })
 }
