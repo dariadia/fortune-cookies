@@ -24,7 +24,7 @@ const Page404 = () => {
         margin="0 auto"
       >
         <Image
-          src="/404 Error-pana.svg"
+          src="/assets/404.png"
           alt="Error 404 not found Illustration"
         />
       </MotionBox>
