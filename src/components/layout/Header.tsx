@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Flex, Heading, Link } from '@chakra-ui/react'
 
-import ThemeToggle from './ThemeToggle'
+import { ThemeToggle } from './ThemeToggle'
 import { DANNI_PORTFOLIO } from 'constants/locations'
 
 export const Header: React.FC = () => {
