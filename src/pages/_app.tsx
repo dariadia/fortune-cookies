@@ -1,22 +1,21 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import { ChakraProvider } from "@chakra-ui/react";
-import { EmotionCache } from "@emotion/cache";
-import { CacheProvider } from "@emotion/react";
-import { DefaultSeo } from "next-seo";
-import { AppProps } from "next/app";
-import Head from "next/head";
-import "@fontsource/lexend/latin.css";
+import { ChakraProvider } from '@chakra-ui/react'
+import { EmotionCache } from '@emotion/cache'
+import { CacheProvider } from '@emotion/react'
+import { DefaultSeo } from 'next-seo'
+import { AppProps } from 'next/app'
+import Head from 'next/head'
+import '@fontsource/lexend/latin.css'
 
-import defaultSEOConfig from "../../next-seo.config";
-import Layout from "components/layout";
-import createEmotionCache from "styles/createEmotionCache";
-import customTheme from "styles/customTheme";
-import "styles/globals.css";
+import defaultSEOConfig from '../../next-seo.config'
+import Layout from '@/components/layout'
+import createEmotionCache from '@/styles/createEmotionCache'
+import customTheme from '@/styles/customTheme'
+import '@/styles/globals.css'
 
-const clientSideEmotionCache = createEmotionCache();
+const clientSideEmotionCache = createEmotionCache()
 
 interface MyAppProps extends AppProps {
-  emotionCache?: EmotionCache;
+  emotionCache?: EmotionCache
 }
 
 const MyApp = ({
@@ -39,11 +38,11 @@ const MyApp = ({
         </Layout>
       </ChakraProvider>
     </CacheProvider>
-  );
-};
+  )
+}
 
 MyApp.defaultProps = {
   emotionCache: clientSideEmotionCache,
-};
+}
 
-export default MyApp;
+export default MyApp
