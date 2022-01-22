@@ -12,7 +12,7 @@ export const Header: React.FC = () => {
           Danni&apos;s portfolio
         </Link>
       </Heading>
-      <Box marginLeft="auto">
+      <Box ml="auto">
         <ThemeToggle />
       </Box>
     </Flex>

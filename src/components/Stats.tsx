@@ -5,7 +5,7 @@ import { PROJECT_REPOSITORY } from 'constants/locations'
 
 export const Stats: React.FC = () => {
   return (
-    <Box textAlign={{ base: 'center', md: 'left' }} marginTop={8}>
+    <Box textAlign={{ base: 'center', md: 'left' }} mt={8}>
       <Flex
         justifyContent={{ base: 'center', md: 'left' }}
         alignItems="center"
