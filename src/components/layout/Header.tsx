@@ -1,9 +1,10 @@
-import { Box, Flex, Heading } from "@chakra-ui/react";
-import Link from "next/link";
+import React from 'react'
+import { Box, Flex, Heading } from '@chakra-ui/react'
+import Link from 'next/link'
 
-import ThemeToggle from "./ThemeToggle";
+import ThemeToggle from './ThemeToggle'
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <Flex as="header" width="full" align="center">
       <Heading as="h1" size="md">
@@ -14,7 +15,7 @@ const Header = () => {
         <ThemeToggle />
       </Box>
     </Flex>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
