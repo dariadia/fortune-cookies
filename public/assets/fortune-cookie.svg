@@ -12,11 +12,11 @@
     id="svg2"
     viewBox="0 0 465 353"
     version="1.1"
-  >
-  <title
-      id="title7676"
-    >Fortune cookie</title
-  >
+    aria-labelledby="fortune-cookie fortune-cookie-description">
+  <title id="fortune-cookie">A fortune cookie</title>
+  <desc id="fortune-cookie-description">
+    This is a glowing golden fortune cookie. Click to crack it.
+  </desc>
   <g
       id="layer2"
       transform="translate(-2365.4 1838.7)"
