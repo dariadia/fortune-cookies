@@ -6,10 +6,10 @@ import Image from 'next/image'
 const FortuneCookie: React.FC = () => {
   return (
     <MotionBox
-      animate={{ y: 20, scale: 0.97 }}
-      transition={{ repeat: Infinity, duration: 2, repeatType: 'reverse' }}
+      animate={{ rotate: [-2, 7.3, -8, 0] }}
+      transition={{ repeat: 2, duration: 0.3, repeatType: 'reverse' }}
       my={8}
-      maxWidth={[240, 320]}
+      maxWidth={[240, 'fit-content']}
       mx="auto"
     >
       <Image
