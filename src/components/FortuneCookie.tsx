@@ -36,7 +36,7 @@ export const CookieImage: React.FC = () => {
           src="/assets/fortune-cookie.svg"
           width={400}
           height={400}
-          alt="Launching Illustration"
+          alt="floating fortune cookie"
         />
       </MotionBox>
 
