@@ -1,4 +1,4 @@
 export * from './motion/Box'
 
-export * from './CookieImage'
+export * from './FortuneCookie'
 export * from './Stats'
