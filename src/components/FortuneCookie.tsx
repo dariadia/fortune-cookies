@@ -33,6 +33,7 @@ export const CookieImage: React.FC = () => {
         my={8}
         maxWidth={[240, 320]}
         mx="auto"
+        sx={{ cursor: 'pointer' }}
       >
         <Link href={FORTUNE_COOKIE}>
           <Image
