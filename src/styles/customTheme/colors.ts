@@ -11,6 +11,7 @@ const overridenChakraColors: DeepPartial<Theme['colors']> = {}
 const colors = {
   ...overridenChakraColors,
   ...extendedColors,
+  gold: 'hsl(46deg,65%,52%)',
 }
 
 export default colors
