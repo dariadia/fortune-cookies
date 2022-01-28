@@ -6,3 +6,5 @@ export const PROJECT_REPOSITORY = 'https://github.com/dariadia/fortune-cookies'
 export const APP_PRODUCTION = 'https://fortune-cookies-xi.vercel.app/'
 
 export const HOME = '/'
+
+export const FORTUNE_COOKIE = 'fortune-cookie'
