@@ -1,1 +1,1 @@
-export const MESSAGE_ARIA = "An open scroll of glowing parchment"
+export const MESSAGE_ARIA = 'An open scroll of glowing parchment'
