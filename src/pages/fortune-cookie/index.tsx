@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Image from 'next/image'
 
 import { MotionBox } from '@/components'
 
 const FortuneCookie: React.FC = () => {
-  return (
+  const [isCracked, crackCookie] = useState(false)
+
+  setTimeout(() => {
+    crackCookie(true)
+  }, 2000)
+
+  return isCracked ? (
+    <div>hello world</div>
+  ) : (
     <MotionBox
       animate={{ rotate: [-2, 7.3, -8, 0] }}
       transition={{ repeat: 2, duration: 0.3, repeatType: 'reverse' }}
