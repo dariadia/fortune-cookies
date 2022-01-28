@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 
 import { MotionBox } from '@/components'
+import { GOLDEN_SHADOW } from 'constants/theme'
 
 const FortuneCookie: React.FC = () => {
   const [isCracked, crackCookie] = useState(false)
@@ -20,6 +21,7 @@ const FortuneCookie: React.FC = () => {
       my={8}
       maxWidth={[240, 'fit-content']}
       mx="auto"
+      filter={`drop-shadow(1px 2px 8px ${GOLDEN_SHADOW})`}
     >
       <Image
         src="/assets/fortune-cookie.svg"
