@@ -6,6 +6,7 @@ import Link from 'next/link'
 
 import { MotionBox } from '@/components'
 import { FORTUNE_COOKIE } from 'constants/locations'
+import { GOLDEN_SHADOW } from 'constants/theme'
 
 type ImageProps = {
   label?: string
@@ -34,6 +35,7 @@ export const CookieImage: React.FC = () => {
         maxWidth={[240, 320]}
         mx="auto"
         sx={{ cursor: 'pointer' }}
+        filter={`drop-shadow(1px 2px 8px ${GOLDEN_SHADOW})`}
       >
         <Link href={FORTUNE_COOKIE}>
           <Image
