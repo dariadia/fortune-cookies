@@ -7,22 +7,20 @@ import { Emoji, PaperScroll } from '.'
 import { GOLDEN_SHADOW } from 'constants/theme'
 
 type MessageProps = {
-  text: string
-  emoji?: string
-  aria_label?: string
-  source_link: string
-  source_title: string
-  source_author: string
+  userFortune: {
+    text: string
+    emoji?: string
+    aria_label?: string
+    source_link: string
+    source_title: string
+    source_author: string
+  }
 }
 
-export const Message: React.FC<MessageProps> = ({
-  text,
-  emoji,
-  aria_label,
-  source_link,
-  source_title,
-  source_author,
-}) => {
+export const Message: React.FC<MessageProps> = props => {
+  const { text, emoji, aria_label, source_link, source_title, source_author } =
+    props.userFortune
+
   return (
     <Box position="relative" m="0 auto" width="calc(100vw - 88px)">
       <Box
