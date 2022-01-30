@@ -6,15 +6,10 @@ import { Emoji, PaperScroll } from '.'
 
 import { GOLDEN_SHADOW } from 'constants/theme'
 
+import { FortuneCookie } from 'types'
+
 type MessageProps = {
-  userFortune: {
-    text: string
-    emoji?: string
-    aria_label?: string
-    source_link: string
-    source_title: string
-    source_author: string
-  }
+  userFortune: FortuneCookie
 }
 
 export const Message: React.FC<MessageProps> = props => {
