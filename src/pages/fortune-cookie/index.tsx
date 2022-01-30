@@ -25,7 +25,7 @@ import {
 import type { FortuneCookie as FortuneCookieType, FortunePage } from 'types'
 import { NextApiRequest, NextApiResponse } from 'next'
 
-const FortuneCookiePage: React.FC<FortunePage> = ({ host, fortuneCookie, fortuneCookieId }) => {
+const FortuneCookiePage: React.FC<FortunePage> = ({ host = 'localhost:3000', fortuneCookie = null, fortuneCookieId }) => {
   const { colorMode } = useColorMode()
   const isLightMode = colorMode === 'light'
 
@@ -74,11 +74,10 @@ const FortuneCookiePage: React.FC<FortunePage> = ({ host, fortuneCookie, fortune
     setFortuneLoading(false)
   }
 
-  if (fortuneCrackedBefore && isEmpty(userFortune)) {
-    console.log(fortuneCrackedBefore, fortuneCookieId)
-    // fetchCookie(fortuneCookieId)
-  } else {
+  if (!fortuneCookieId) {
     crackCookie()
+  } else if (fortuneCrackedBefore && isEmpty(userFortune)) {
+    fetchCookie(fortuneCookieId)
   }
 
   const isLoading =

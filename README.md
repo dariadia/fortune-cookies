@@ -7,8 +7,6 @@ TODO: information on project and idea goes here, crack fortune cookies, have fun
 To run the development server:
 
 ```bash
-npm run dev
-# or
 yarn dev
 ```
 

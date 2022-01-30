@@ -25,7 +25,6 @@
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.6.0",
     "@fontsource/lexend": "^4.5.2",
-    "@types/cookies": "^0.7.7",
     "cookies": "^0.8.0",
     "framer-motion": "^4.1.17",
     "lodash": "^4.17.21",
@@ -41,6 +40,7 @@
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^16.0.0",
+    "@types/cookies": "^0.7.7",
     "@types/react": "^17.0.38",
     "@typescript-eslint/eslint-plugin": "4.2.0",
     "@typescript-eslint/parser": "4.2.0",
