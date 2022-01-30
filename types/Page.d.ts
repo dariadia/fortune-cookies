@@ -16,6 +16,7 @@ export interface SinglePage {
 export interface FortunePage extends SinglePage {
   fortuneCookie?: FortuneCookie
   fortuneCookieId?: number
+  host: string
 }
 
 export type Theme = typeof theme
