@@ -25,7 +25,11 @@ import {
 import type { FortuneCookie as FortuneCookieType, FortunePage } from 'types'
 import { NextApiRequest, NextApiResponse } from 'next'
 
-const FortuneCookiePage: React.FC<FortunePage> = ({ host = 'localhost:3000', fortuneCookie = null, fortuneCookieId }) => {
+const FortuneCookiePage: React.FC<FortunePage> = ({
+  host = 'localhost:3000',
+  fortuneCookie = null,
+  fortuneCookieId,
+}) => {
   const { colorMode } = useColorMode()
   const isLightMode = colorMode === 'light'
 
