@@ -2,8 +2,11 @@ import React from 'react'
 
 import { Box, Flex, Tooltip, useColorMode } from '@chakra-ui/react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { MotionBox } from '@/components'
+import { FORTUNE_COOKIE } from 'constants/locations'
+import { GOLDEN_SHADOW } from 'constants/theme'
 
 type ImageProps = {
   label?: string
@@ -31,13 +34,17 @@ export const CookieImage: React.FC = () => {
         my={8}
         maxWidth={[240, 320]}
         mx="auto"
+        sx={{ cursor: 'pointer' }}
+        filter={`drop-shadow(1px 2px 8px ${GOLDEN_SHADOW})`}
       >
-        <Image
-          src="/assets/fortune-cookie.svg"
-          width={400}
-          height={400}
-          alt="floating fortune cookie"
-        />
+        <Link href={FORTUNE_COOKIE}>
+          <Image
+            src="/assets/fortune-cookie.svg"
+            width={400}
+            height={400}
+            alt="floating fortune cookie"
+          />
+        </Link>
       </MotionBox>
 
       <Flex my={4} justifyContent="center" alignItems="center">

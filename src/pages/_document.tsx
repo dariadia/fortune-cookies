@@ -65,12 +65,7 @@ class MyDocument extends Document {
           <meta name="format-detection" content="telephone=no" />
           <meta name="mobile-web-app-capable" content="yes" />
           <meta name="theme-color" content="#030623" />
-          <meta
-            name="viewport"
-            content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
-          />
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-          <title>{TEXTS.app_title}</title>
           <meta name="description" content={TEXTS.app_description} />
           <meta
             name="og:image"
