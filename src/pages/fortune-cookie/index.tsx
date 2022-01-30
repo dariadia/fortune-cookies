@@ -53,7 +53,7 @@ const FortuneCookiePage: React.FC = () => {
     setUserFortune(fortuneCookie)
   }
 
-  const useCrackCookie = async () => {
+  const crackCookie = async () => {
     setFortuneLoading(true)
 
     const getCountUrl = `${getProtocol(
@@ -74,10 +74,12 @@ const FortuneCookiePage: React.FC = () => {
     setFortuneLoading(false)
   }
 
-  useCrackCookie()
+  crackCookie()
 
   if (fortuneCrackedBefore && isEmpty(userFortune)) {
     fetchCookie(fortuneCookieId)
+  } else {
+    crackCookie()
   }
 
   const isLoading =
