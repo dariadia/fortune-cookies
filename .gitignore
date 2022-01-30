@@ -34,7 +34,7 @@ yarn-error.log*
 .vercel
 
 **/public/workbox-*.js
-**/public/sw.js
+**/public/favicon/sw.js
 **/public/service-worker.js
 
 # sitemap
