@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+
+import Cookies from 'cookies'
 import { useCookies } from 'react-cookie'
 
 import { isEmpty } from 'lodash'
@@ -20,21 +22,19 @@ import {
   FORTUNE_COOKIES_PATH_ONE,
 } from 'constants/locations'
 
-import type { FortuneCookie as FortuneCookieType } from 'types'
+import type { FortuneCookie as FortuneCookieType, FortunePage } from 'types'
+import { NextApiRequest, NextApiResponse } from 'next'
 
-const FortuneCookiePage: React.FC = () => {
+const FortuneCookiePage: React.FC<FortunePage> = ({ host, fortuneCookie, fortuneCookieId }) => {
   const { colorMode } = useColorMode()
   const isLightMode = colorMode === 'light'
 
-  const host = 'localhost:3000'
   const url = 'localhost:3000/fortune-cookie'
 
   const [isFortuneLoading, setFortuneLoading] = useState(false)
-  const [userFortune, setUserFortune] = useState({})
+  const [userFortune, setUserFortune] = useState(fortuneCookie)
 
   const [cookies, setCookie] = useCookies([FORTUNE_COOKIE])
-
-  const fortuneCookieId = cookies[FORTUNE_COOKIE]
   const fortuneCrackedBefore = Boolean(fortuneCookieId)
 
   const timeTillMidnight = getTimeTillMidnight()
@@ -49,8 +49,8 @@ const FortuneCookiePage: React.FC = () => {
       method: 'GET',
     }).then(res => res.json())
 
-    const fortuneCookie = fortune as FortuneCookieType
-    setUserFortune(fortuneCookie)
+    const _fortuneCookie = fortune as FortuneCookieType
+    setUserFortune(_fortuneCookie)
   }
 
   const crackCookie = async () => {
@@ -74,10 +74,9 @@ const FortuneCookiePage: React.FC = () => {
     setFortuneLoading(false)
   }
 
-  crackCookie()
-
   if (fortuneCrackedBefore && isEmpty(userFortune)) {
-    fetchCookie(fortuneCookieId)
+    console.log(fortuneCrackedBefore, fortuneCookieId)
+    // fetchCookie(fortuneCookieId)
   } else {
     crackCookie()
   }
@@ -136,6 +135,39 @@ const FortuneCookiePage: React.FC = () => {
       </Box>
     </>
   )
+}
+
+export async function getServerSideProps({
+  req,
+  res,
+}: {
+  req: NextApiRequest
+  res: NextApiResponse
+}): Promise<{ props: FortunePage }> {
+  const cookies = new Cookies(req, res)
+  const fortuneCookieId = Number(cookies.get(FORTUNE_COOKIE))
+  const host = req.headers.host
+
+  let fortuneCookie = null
+  if (fortuneCookieId) {
+    fortuneCookie = await fetch(
+      `${getProtocol(host as string)}${host}/api${buildRequestUrl(
+        `${FORTUNE_COOKIES_PATH_ONE}${fortuneCookieId}`,
+      )}`,
+      {
+        method: 'GET',
+      },
+    ).then(result => result.json())
+  }
+
+  return {
+    props: {
+      host: host as string,
+      url: req.url,
+      fortuneCookieId,
+      fortuneCookie,
+    },
+  }
 }
 
 export default FortuneCookiePage
