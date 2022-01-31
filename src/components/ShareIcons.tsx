@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { META_TEXTS, HASHTAG, HASHTAGS_ARRAY } from 'constants/texts'
-import { SHARE_ICON_SIZE } from 'constants/theme'
+import { GOLDEN_SHADOW, SHARE_ICON_SIZE } from 'constants/theme'
 
 import {
   EmailShareButton,
@@ -23,6 +23,7 @@ import {
   FacebookMessengerIcon,
   FacebookMessengerShareButton,
 } from 'react-share'
+import { Box, Flex } from '@chakra-ui/react'
 
 type ShareRowProps = {
   shareUrl: string
@@ -31,8 +32,22 @@ type ShareRowProps = {
 }
 
 export const ShareIcons: React.FC<ShareRowProps> = props => (
-  <>
-    <div>
+  <Flex
+    flexDirection="column"
+    justifyContent="center"
+    alignItems="center"
+    m="2rem 0"
+    sx={{
+      '&>div>button': {
+        m: '13px 7px',
+      },
+      '&>div>button:hover': {
+        filter: `drop-shadow(0.5px 1px 4px ${GOLDEN_SHADOW})`,
+        transition: '0.2s filter',
+      },
+    }}
+  >
+    <Box>
       <FacebookShareButton
         url={props.shareUrl}
         quote={`${META_TEXTS.fortune_told_me}: ${props.truncatedText}`}
@@ -57,8 +72,8 @@ export const ShareIcons: React.FC<ShareRowProps> = props => (
       >
         <LivejournalIcon size={SHARE_ICON_SIZE} round />
       </LivejournalShareButton>
-    </div>
-    <div>
+    </Box>
+    <Box p="2">
       <TelegramShareButton
         url={props.shareUrl}
         title={META_TEXTS.fortune_title}
@@ -94,28 +109,6 @@ export const ShareIcons: React.FC<ShareRowProps> = props => (
       >
         <EmailIcon size={SHARE_ICON_SIZE} round />
       </EmailShareButton>
-    </div>
-  </>
+    </Box>
+  </Flex>
 )
-
-// `
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   margin: 2rem 0;
-//   animation: ${appearSlow} 2s 1;
-//   > div {
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: center;
-//     align-items: center;
-//     > button {
-//       margin: 13px 7px;
-//       :hover {
-//         filter: drop-shadow(0.5px 1px 4px ${GOLDEN_SHADOW});
-//         transition: 0.2s filter;
-//       }
-//     }
-//   }
-// `
