@@ -18,7 +18,4 @@ export const META_TEXTS = {
 
 export const HASHTAG = '#fortunecookie'
 
-export const HASHTAGS_ARRAY = [
-  'fortunecookies',
-  'fortunecookie',
-]
+export const HASHTAGS_ARRAY = ['fortunecookies', 'fortunecookie']
