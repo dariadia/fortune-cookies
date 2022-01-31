@@ -42,10 +42,10 @@ export const Message: React.FC<MessageProps> = props => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
-        maxWidth="60vw"
+        maxWidth={['85vw', '60vw']}
         m="auto"
         textAlign="center"
-        sx={{ font: '2rem/4rem monospace' }}
+        sx={{ font: ['1rem/2rem monospace', '2rem/4rem monospace'] }}
       >
         {text}
         {emoji && (

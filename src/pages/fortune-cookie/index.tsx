@@ -129,9 +129,12 @@ const FortuneCookiePage: React.FC<FortunePage> = ({
       />
       <Box
         color={isLightMode ? 'pink' : 'hotpink'}
-        sx={{ font: "2rem/4rem 'Caveat', cursiv" }}
+        sx={{
+          font: ['1rem/2rem "Caveat", cursiv', '2rem/4rem "Caveat", cursiv'],
+        }}
         m="20px auto"
-        width="fit-content"
+        width={['85%', 'fit-content']}
+        textAlign="center"
       >
         <Emoji label="otter">🦦</Emoji> {TEXTS.fortune_at_midnight}{' '}
         {tillMidnightHours} {TEXTS.hours}{' '}
