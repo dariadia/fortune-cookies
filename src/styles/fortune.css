@@ -1,0 +1,18 @@
+.fortune__wrapper > svg {
+  height: 75vw;
+  width: 40vw;
+}
+
+@media only screen and (min-width: 440px) and (max-width: 900px) {
+  .fortune__wrapper > svg {
+    height: 380px;
+    width: 220px;
+  }
+}
+
+@media only screen and (min-width: 901px) {
+  .fortune__wrapper > svg {
+    height: 520px;
+    width: 260px;
+  }
+}
