@@ -3,8 +3,6 @@ import React from 'react'
 export const PaperScroll: React.FC = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    height="75vw"
-    width="35vw"
     enableBackground="new 0 0 433.525 472.934"
     overflow="clip"
     viewBox="0 0 433.525 472.934"

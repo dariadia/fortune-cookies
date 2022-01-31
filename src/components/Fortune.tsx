@@ -17,8 +17,9 @@ export const Message: React.FC<MessageProps> = props => {
     props.userFortune
 
   return (
-    <Box position="relative" m="0 auto" width="calc(100vw - 88px)">
+    <Box m="0">
       <Box
+        className="fortune__wrapper"
         role="img"
         width="fit-content"
         height="fit-content"
