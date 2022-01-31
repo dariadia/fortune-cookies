@@ -37,11 +37,11 @@ export const CookieImage: React.FC = () => {
         sx={{ cursor: 'pointer' }}
         filter={`drop-shadow(1px 2px 8px ${GOLDEN_SHADOW})`}
       >
-        <Link href={FORTUNE_COOKIE}>
-          <Image
-            src="/assets/fortune-cookie.svg"
-            width={400}
-            height={400}
+        <Link href={`/${FORTUNE_COOKIE}`}>
+          <Box
+            background="url('/assets/fortune-cookie.svg') center no-repeat"
+            width={350}
+            height={350}
             alt="floating fortune cookie"
           />
         </Link>

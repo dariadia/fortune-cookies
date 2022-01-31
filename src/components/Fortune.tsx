@@ -22,7 +22,10 @@ export const Message: React.FC<MessageProps> = props => {
         role="img"
         height="30vw"
         width="15vw"
-        sx={{ filter: `drop-shadow(1px 2px 8px ${GOLDEN_SHADOW})` }}
+        sx={{
+          filter: `drop-shadow(1px 2px 8px ${GOLDEN_SHADOW})`,
+          transform: 'rotate(90deg)',
+        }}
       >
         <PaperScroll />
       </Box>

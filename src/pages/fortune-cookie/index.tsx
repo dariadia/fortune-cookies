@@ -26,14 +26,12 @@ import type { FortuneCookie as FortuneCookieType, FortunePage } from 'types'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 const FortuneCookiePage: React.FC<FortunePage> = ({
-  host = 'localhost:3000',
+  host,
   fortuneCookie = null,
   fortuneCookieId,
 }) => {
   const { colorMode } = useColorMode()
   const isLightMode = colorMode === 'light'
-
-  const url = 'localhost:3000/fortune-cookie'
 
   const [isFortuneLoading, setFortuneLoading] = useState(false)
   const [userFortune, setUserFortune] = useState(fortuneCookie)
@@ -96,15 +94,14 @@ const FortuneCookiePage: React.FC<FortunePage> = ({
 
   let shareUrl = ''
   const appHostWithProtocol = `${getProtocol(host as string)}${host}`
-  const roomUrl = `${appHostWithProtocol}${url}`
+  const currentUrl = `${appHostWithProtocol}/${FORTUNE_COOKIE}`
 
   const fortuneId = fortuneCookieId || cookies[FORTUNE_COOKIE]
 
   if (fortuneId) {
     const scrambledId = scrambleId(fortuneId)
-    shareUrl = `${roomUrl}/${scrambledId}`
+    shareUrl = `${currentUrl}/${scrambledId}`
   }
-  // const metaImagePath = `${APP_PRODUCTION}/assets/fortune-room.png`
 
   return isLoading ? (
     <MotionBox
@@ -166,7 +163,6 @@ export async function getServerSideProps({
   return {
     props: {
       host: host as string,
-      url: req.url,
       fortuneCookieId,
       fortuneCookie,
     },
