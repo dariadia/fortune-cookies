@@ -39,9 +39,9 @@ export const Message: React.FC<MessageProps> = props => {
         <PaperScroll />
       </MotionBox>
       <MotionBox
-       initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 2 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2 }}
         maxWidth="60vw"
         m="auto"
         textAlign="center"
@@ -49,9 +49,16 @@ export const Message: React.FC<MessageProps> = props => {
       >
         {text}
         {emoji && (
-          <Emoji className="fortune-cookie_emoji" label={aria_label as string}>
-            {emoji}
-          </Emoji>
+          <>
+            <br />
+            <Emoji
+              className="fortune-cookie_emoji"
+              label={aria_label as string}
+            >
+              {emoji}
+            </Emoji>
+            <br />
+          </>
         )}
         <Box className="fortune-cookie_source">
           <a href={source_link} target="_blank">
