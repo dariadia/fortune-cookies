@@ -15,7 +15,6 @@ import { TEXTS } from 'constants/texts'
 
 import customTheme from '@/styles/customTheme'
 import '@/styles/globals.css'
-import '@/styles/fortune.css'
 
 const clientSideEmotionCache = createEmotionCache()
 

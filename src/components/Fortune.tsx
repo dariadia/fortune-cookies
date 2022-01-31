@@ -27,6 +27,11 @@ export const Message: React.FC<MessageProps> = props => {
         sx={{
           filter: `drop-shadow(1px 2px 8px ${GOLDEN_SHADOW})`,
           transform: 'rotate(90deg)',
+          '&>svg': {
+            width: ['40vw', '220px', '260px'],
+            height: ['75vw', '380px', '520px'],
+            mt: ['0', '-50px', '-100px'],
+          },
         }}
       >
         <PaperScroll />
