@@ -18,7 +18,10 @@ export const Message: React.FC<MessageProps> = props => {
 
   return (
     <Box m="0">
-      <Box
+      <MotionBox
+        initial={{ rotate: '90deg' }}
+        animate={{ scale: 0.97 }}
+        transition={{ repeat: Infinity, duration: 2, repeatType: 'reverse' }}
         className="fortune__wrapper"
         role="img"
         width="fit-content"
@@ -26,7 +29,6 @@ export const Message: React.FC<MessageProps> = props => {
         m="auto"
         sx={{
           filter: `drop-shadow(1px 2px 8px ${GOLDEN_SHADOW})`,
-          transform: 'rotate(90deg)',
           '&>svg': {
             width: ['40vw', '220px', '260px'],
             height: ['75vw', '380px', '520px'],
@@ -35,13 +37,13 @@ export const Message: React.FC<MessageProps> = props => {
         }}
       >
         <PaperScroll />
-      </Box>
+      </MotionBox>
       <MotionBox
-        animate={{ y: 20, scale: 0.97 }}
-        transition={{ repeat: Infinity, duration: 2, repeatType: 'reverse' }}
+       initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 2 }}
         maxWidth="60vw"
         m="auto"
-        pt="22vw"
         textAlign="center"
         sx={{ font: '2rem/4rem monospace' }}
       >
