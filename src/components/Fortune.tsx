@@ -20,8 +20,7 @@ export const Message: React.FC<MessageProps> = props => {
     <Box position="relative" m="0 auto" width="calc(100vw - 88px)">
       <Box
         role="img"
-        height="30vw"
-        width="15vw"
+        width="fit-content"
         sx={{
           filter: `drop-shadow(1px 2px 8px ${GOLDEN_SHADOW})`,
           transform: 'rotate(90deg)',
