@@ -122,7 +122,11 @@ const FortuneCookiePage: React.FC<FortunePage> = ({
   ) : (
     <>
       <Message userFortune={userFortune as FortuneCookieType} />
-      <ShareIcons shareUrl={shareUrl as string} truncatedText={truncatedText} />
+      <ShareIcons
+        shareUrl={shareUrl as string}
+        url={currentUrl}
+        truncatedText={truncatedText}
+      />
       <Box
         color={isLightMode ? 'pink' : 'hotpink'}
         sx={{ font: "2rem/4rem 'Caveat', cursiv" }}

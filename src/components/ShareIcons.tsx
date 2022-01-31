@@ -27,7 +27,7 @@ import {
 type ShareRowProps = {
   shareUrl: string
   truncatedText?: string
-  currentUrl?: string
+  url?: string
 }
 
 export const ShareIcons: React.FC<ShareRowProps> = props => (
@@ -68,7 +68,7 @@ export const ShareIcons: React.FC<ShareRowProps> = props => (
       <FacebookMessengerShareButton
         url={props.shareUrl}
         appId="2001449690035746"
-        redirectUri={props.currentUrl}
+        redirectUri={props.url}
       >
         <FacebookMessengerIcon size={SHARE_ICON_SIZE} round />
       </FacebookMessengerShareButton>
@@ -87,7 +87,7 @@ export const ShareIcons: React.FC<ShareRowProps> = props => (
         <WhatsappIcon size={SHARE_ICON_SIZE} round />
       </WhatsappShareButton>
       <EmailShareButton
-        url={props.currentUrl || ''}
+        url={props.url || ''}
         subject={META_TEXTS.fortune_title}
         body={`See mine here ${props.shareUrl}\n\nOR\n\n${META_TEXTS.fortune_description}`}
         separator={`\n 🥠 💙 💙 💙 🥠 \n`}
