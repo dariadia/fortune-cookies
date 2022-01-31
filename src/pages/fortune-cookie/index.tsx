@@ -25,11 +25,13 @@ import {
 import type { FortuneCookie as FortuneCookieType, FortunePage } from 'types'
 import { NextApiRequest, NextApiResponse } from 'next'
 
-const FortuneCookiePage: React.FC<FortunePage> = ({ host = 'localhost:3000', fortuneCookie = null, fortuneCookieId }) => {
+const FortuneCookiePage: React.FC<FortunePage> = ({
+  host,
+  fortuneCookie = null,
+  fortuneCookieId,
+}) => {
   const { colorMode } = useColorMode()
   const isLightMode = colorMode === 'light'
-
-  const url = 'localhost:3000/fortune-cookie'
 
   const [isFortuneLoading, setFortuneLoading] = useState(false)
   const [userFortune, setUserFortune] = useState(fortuneCookie)
@@ -92,15 +94,14 @@ const FortuneCookiePage: React.FC<FortunePage> = ({ host = 'localhost:3000', for
 
   let shareUrl = ''
   const appHostWithProtocol = `${getProtocol(host as string)}${host}`
-  const roomUrl = `${appHostWithProtocol}${url}`
+  const currentUrl = `${appHostWithProtocol}/${FORTUNE_COOKIE}`
 
   const fortuneId = fortuneCookieId || cookies[FORTUNE_COOKIE]
 
   if (fortuneId) {
     const scrambledId = scrambleId(fortuneId)
-    shareUrl = `${roomUrl}/${scrambledId}`
+    shareUrl = `${currentUrl}/${scrambledId}`
   }
-  // const metaImagePath = `${APP_PRODUCTION}/assets/fortune-room.png`
 
   return isLoading ? (
     <MotionBox
@@ -121,12 +122,19 @@ const FortuneCookiePage: React.FC<FortunePage> = ({ host = 'localhost:3000', for
   ) : (
     <>
       <Message userFortune={userFortune as FortuneCookieType} />
-      <ShareIcons shareUrl={shareUrl as string} truncatedText={truncatedText} />
+      <ShareIcons
+        shareUrl={shareUrl as string}
+        url={currentUrl}
+        truncatedText={truncatedText}
+      />
       <Box
         color={isLightMode ? 'pink' : 'hotpink'}
-        sx={{ font: "2rem/4rem 'Caveat', cursiv" }}
+        sx={{
+          font: ['1rem/2rem "Caveat", cursiv', '2rem/4rem "Caveat", cursiv'],
+        }}
         m="20px auto"
-        width="fit-content"
+        width={['85%', 'fit-content']}
+        textAlign="center"
       >
         <Emoji label="otter">🦦</Emoji> {TEXTS.fortune_at_midnight}{' '}
         {tillMidnightHours} {TEXTS.hours}{' '}
@@ -162,7 +170,6 @@ export async function getServerSideProps({
   return {
     props: {
       host: host as string,
-      url: req.url,
       fortuneCookieId,
       fortuneCookie,
     },

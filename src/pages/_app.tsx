@@ -10,10 +10,11 @@ import { AppProps as NextAppProps } from 'next/app'
 import defaultSEOConfig from '../../next-seo.config'
 import { Layout } from '@/components/layout'
 import createEmotionCache from '@/styles/createEmotionCache'
-import customTheme from '@/styles/customTheme'
 
-import '@/styles/globals.css'
 import { TEXTS } from 'constants/texts'
+
+import customTheme from '@/styles/customTheme'
+import '@/styles/globals.css'
 
 const clientSideEmotionCache = createEmotionCache()
 

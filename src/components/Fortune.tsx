@@ -17,29 +17,48 @@ export const Message: React.FC<MessageProps> = props => {
     props.userFortune
 
   return (
-    <Box position="relative" m="0 auto" width="calc(100vw - 88px)">
-      <Box
+    <Box m="0">
+      <MotionBox
+        initial={{ rotate: '90deg' }}
+        animate={{ scale: 0.97 }}
+        transition={{ repeat: Infinity, duration: 2, repeatType: 'reverse' }}
+        className="fortune__wrapper"
         role="img"
-        height="30vw"
-        width="15vw"
-        sx={{ filter: `drop-shadow(1px 2px 8px ${GOLDEN_SHADOW})` }}
+        width="fit-content"
+        height="fit-content"
+        m="auto"
+        sx={{
+          filter: `drop-shadow(1px 2px 8px ${GOLDEN_SHADOW})`,
+          '&>svg': {
+            width: ['40vw', '220px', '260px'],
+            height: ['75vw', '380px', '520px'],
+            mt: ['0', '-50px', '-100px'],
+          },
+        }}
       >
         <PaperScroll />
-      </Box>
+      </MotionBox>
       <MotionBox
-        animate={{ y: 20, scale: 0.97 }}
-        transition={{ repeat: Infinity, duration: 2, repeatType: 'reverse' }}
-        maxWidth="60vw"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2 }}
+        maxWidth={['85vw', '60vw']}
         m="auto"
-        pt="22vw"
         textAlign="center"
-        sx={{ font: '2rem/4rem monospace' }}
+        sx={{ font: ['1rem/2rem monospace', '2rem/4rem monospace'] }}
       >
         {text}
         {emoji && (
-          <Emoji className="fortune-cookie_emoji" label={aria_label as string}>
-            {emoji}
-          </Emoji>
+          <>
+            <br />
+            <Emoji
+              className="fortune-cookie_emoji"
+              label={aria_label as string}
+            >
+              {emoji}
+            </Emoji>
+            <br />
+          </>
         )}
         <Box className="fortune-cookie_source">
           <a href={source_link} target="_blank">
