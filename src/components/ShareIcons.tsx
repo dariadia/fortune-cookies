@@ -24,6 +24,7 @@ import {
   FacebookMessengerShareButton,
 } from 'react-share'
 import { Box, Flex } from '@chakra-ui/react'
+import { APP_PRODUCTION } from 'constants/locations'
 
 type ShareRowProps = {
   shareUrl: string
@@ -62,7 +63,11 @@ export const ShareIcons: React.FC<ShareRowProps> = props => (
       >
         <TwitterIcon size={SHARE_ICON_SIZE} round />
       </TwitterShareButton>
-      <VKShareButton url={props.shareUrl} title={META_TEXTS.fortune_title}>
+      <VKShareButton
+        url={props.shareUrl}
+        title={META_TEXTS.fortune_title}
+        image={`${APP_PRODUCTION}/assets/og-image.png`}
+      >
         <VKIcon size={SHARE_ICON_SIZE} round />
       </VKShareButton>
       <LivejournalShareButton
