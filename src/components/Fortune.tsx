@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box } from '@chakra-ui/react'
+import { Box, Link } from '@chakra-ui/react'
 
 import { MotionBox } from '.'
 import { Emoji, PaperScroll } from '.'
@@ -61,9 +61,20 @@ export const Message: React.FC<MessageProps> = props => {
           </>
         )}
         <Box className="fortune-cookie_source">
-          <a href={source_link} target="_blank">
+          <Link
+            href={source_link}
+            target="_blank"
+            color="green"
+            sx={{
+              '&:hover': {
+                filter: `drop-shadow(0.5px 1px 4px ${GOLDEN_SHADOW})`,
+                transition: '0.2s all',
+                'text-decoration': 'none',
+              },
+            }}
+          >
             {source_title}
-          </a>
+          </Link>
           <br />
           {source_author}
         </Box>
