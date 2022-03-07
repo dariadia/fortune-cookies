@@ -33,7 +33,7 @@ const FortuneCookiePage: React.FC<FortunePage> = ({
   const { colorMode } = useColorMode()
   const isLightMode = colorMode === 'light'
 
-  const [isFortuneLoading, setFortuneLoading] = useState(false)
+  const [pulledFortuneId, setFortuneId] = useState(0)
   const [userFortune, setUserFortune] = useState(fortuneCookie)
 
   const [cookies, setCookie] = useCookies([FORTUNE_COOKIE])
@@ -56,7 +56,7 @@ const FortuneCookiePage: React.FC<FortunePage> = ({
   }
 
   const crackCookie = async () => {
-    setFortuneLoading(true)
+    if (pulledFortuneId) return
 
     const getCountUrl = `${getProtocol(
       host as string,
@@ -71,9 +71,9 @@ const FortuneCookiePage: React.FC<FortunePage> = ({
       maxAge: timeTillMidnight,
     })
 
-    fetchCookie(CookieId)
+    setFortuneId(CookieId)
 
-    setFortuneLoading(false)
+    await fetchCookie(CookieId)
   }
 
   if (!fortuneCookieId) {
@@ -81,9 +81,6 @@ const FortuneCookiePage: React.FC<FortunePage> = ({
   } else if (fortuneCrackedBefore && isEmpty(userFortune)) {
     fetchCookie(fortuneCookieId)
   }
-
-  const isLoading =
-    isFortuneLoading || (fortuneCrackedBefore && isEmpty(userFortune))
 
   let truncatedText = ''
   if (!isEmpty(userFortune)) {
@@ -103,7 +100,7 @@ const FortuneCookiePage: React.FC<FortunePage> = ({
     shareUrl = `${currentUrl}/${scrambledId}`
   }
 
-  return isLoading ? (
+  return isEmpty(userFortune) ? (
     <MotionBox
       animate={{ rotate: [-2, 7.3, -8, 0] }}
       transition={{ repeat: 2, duration: 0.3, repeatType: 'reverse' }}
