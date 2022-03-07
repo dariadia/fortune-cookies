@@ -69,7 +69,7 @@ export const Message: React.FC<MessageProps> = props => {
               '&:hover': {
                 filter: `drop-shadow(0.5px 1px 4px ${GOLDEN_SHADOW})`,
                 transition: '0.2s all',
-                'text-decoration': 'none',
+                textDecoration: 'none',
               },
             }}
           >
